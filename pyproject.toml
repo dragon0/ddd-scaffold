@@ -1,0 +1,47 @@
+[tool.poetry]
+name = "ddd-scaffold"
+version = "0.1.0"
+description = ""
+authors = ["Sean Raven <sean@briviant.com>"]
+readme = "README.md"
+packages = [{include = "ddd_scaffold"}]
+
+[tool.poetry.scripts]
+ddd_scaffold = "ddd_scaffold.__main__:run"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+pydantic = "^1.10.2"
+sqlalchemy = "^1.4.42"
+typer = "^0.6.1"
+
+
+[tool.poetry.group.dev.dependencies]
+invoke = "^1.7.3"
+pytest = "^7.1.3"
+coverage = "^6.5.0"
+pytest-cov = "^4.0.0"
+pytest-watch = "^4.2.0"
+autopep8 = "^1.7.0"
+isort = "^5.10.1"
+flake8 = "^5.0.4"
+pylint = "^2.15.4"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.autopep8]
+max_line_length = 120
+
+[tool.isort]
+src_paths = ["dispenser", "tests"]
+ensure_newline_before_comments = true
+include_trailing_comma = true
+line_length = 120
+
+[tool.pylint.'MESSAGES CONTROL']
+disable = "all"
+enable = "E"
+extension-pkg-whitelist = "pydantic"
+
